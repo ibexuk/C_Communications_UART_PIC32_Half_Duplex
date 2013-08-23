@@ -264,7 +264,7 @@ void __ISR(_UART_1_VECTOR, ipl5) Uart1InterruptHandler (void) 		//(ipl# must mat
     	//Clear RX buffer of bad data
 		while (UARTReceivedDataIsAvailable(COMMS_UART_NAME))
 			data = UARTGetDataByte(COMMS_UART_NAME);
-		INTClearFlag(INT_SOURCE_UART_RX(COMMS_UART_NAME));
+		INTClearFlag(INT_SOURCE_UART_ERROR(COMMS_UART_NAME));
 		
 		comms_rx_byte = 0xffff;
 	}
